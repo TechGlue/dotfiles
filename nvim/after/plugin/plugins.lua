@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
   use "EdenEast/nightfox.nvim"
   use "ellisonleao/gruvbox.nvim"
   use 'kien/ctrlp.vim'
+  use {'Biscuit-Colorscheme/nvim'}
 
   use 'ajmwagar/vim-deus'
   use 'nvim-treesitter/nvim-treesitter'
@@ -23,12 +24,17 @@ return require('packer').startup(function(use)
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
 	require("toggleterm").setup()
   end}
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+
 
 -- misc
-  use 'nvim-tree/nvim-web-devicons'
+  use {'nvim-tree/nvim-web-devicons'}
   use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+  use {'p00f/nvim-ts-rainbow'}
+
+  use {
+	'nvim-lualine/lualine.nvim',
+  	requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
 -- Autocompletion
   use {'hrsh7th/nvim-cmp'}         -- Required
@@ -54,9 +60,5 @@ return require('packer').startup(function(use)
   }
   use('MunifTanjim/prettier.nvim')
 end)
-
-
-
-
 
 

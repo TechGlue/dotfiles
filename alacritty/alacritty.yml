@@ -1,6 +1,6 @@
 import:
-  #- "~/.config/alacritty/themes/gruvbox_material.yml"
-  - "~/.config/alacritty/themes/city_lights.yml"
+  - "~/.config/alacritty/themes/gruvbox_material.yml"
+    # - "~/.config/alacritty/themes/biscuit-dark.yml"
   # Configuration for Alacritty, the GPU enhanced terminal emulator.
   # Import additional configuration files
   #
@@ -46,7 +46,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 8
+    x: 12
     y: 8
 
   # Spread additional padding evenly around the terminal content.

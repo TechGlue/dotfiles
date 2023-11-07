@@ -1,4 +1,5 @@
 local opt = vim.opt
+vim.opt.termguicolors = true
 
 -- keybindings
 vim.g.mapleader = ' '
@@ -23,8 +24,10 @@ opt.title          = true
 opt.hlsearch       = false
 
 --color scheme 
-vim.opt.background = "dark" -- set this to dark or light
-vim.cmd("colorscheme oxocarbon")
+local status, _ = pcall(require, "biscuit")
+if (status) then
+		vim.cmd[[colorscheme biscuit]]
+end
 
 -- save on the space bar click 
 vim.api.nvim_set_keymap('n', '<space>', ':w<CR>', {noremap=true})
@@ -47,4 +50,3 @@ vim.api.nvim_set_keymap('n', '<leader>ww', ':WhichKey<CR>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>vs', ':vsplit<CR>', {noremap=true})
 -- shortcut vim horizontal split
 vim.api.nvim_set_keymap('n', '<leader>hs', ':split<CR>', {noremap=true})
-
