@@ -5,3 +5,5 @@ set -x PATH $HOME/.local/bin:$PATH
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
+set TERM xterm-256color
+
