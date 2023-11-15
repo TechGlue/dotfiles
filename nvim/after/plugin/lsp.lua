@@ -1,23 +1,19 @@
-local lsp = require("lsp-zero")
+local lsp = require('lsp-zero')
 
-lsp.preset("recommended")
+lsp.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp.default_keymaps({buffer = bufnr})
+end)
 
-lsp.ensure_installed({
-  'tsserver',
-  'rust_analyzer',
+-- see :help lsp-zero-guide:integrate-with-mason-nvim
+-- to learn how to use mason.nvim with lsp-zero
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  handlers = {
+    lsp.default_setup,
+  }
 })
-
--- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-})
-
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -30,10 +26,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
@@ -60,7 +52,6 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true
@@ -73,4 +64,3 @@ require('lspconfig').gopls.setup({
         }
     }
 })
-
