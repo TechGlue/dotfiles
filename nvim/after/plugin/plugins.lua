@@ -3,10 +3,6 @@ return require('packer').startup(function(use)
 
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
  -- Colorschemes
   use {'nyoom-engineering/oxocarbon.nvim'}
   use "rebelot/kanagawa.nvim"
@@ -14,6 +10,7 @@ return require('packer').startup(function(use)
   use "ellisonleao/gruvbox.nvim"
   use 'kien/ctrlp.vim'
   use {'Biscuit-Colorscheme/nvim'}
+  use {'craftzdog/solarized-osaka.nvim'}
 
   use 'ajmwagar/vim-deus'
   use 'nvim-treesitter/nvim-treesitter'
@@ -50,6 +47,12 @@ return require('packer').startup(function(use)
   use {'rafamadriz/friendly-snippets'} -- Optional
   use {'github/copilot.vim'}
 
+
+  use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.5',
+-- or                            , branch = '0.1.x',
+  requires = { {'nvim-lua/plenary.nvim'} }
+  }
   -- Lua
   use {
     "folke/zen-mode.nvim",

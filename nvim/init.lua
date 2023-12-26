@@ -26,7 +26,7 @@ opt.hlsearch       = false
 --color scheme 
 local status, _ = pcall(require, "biscuit")
 if (status) then
-		vim.cmd[[colorscheme biscuit]]
+		vim.cmd[[colorscheme solarized-osaka]]
 end
 
 -- save on the space bar click 
